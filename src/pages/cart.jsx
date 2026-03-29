@@ -1,7 +1,7 @@
 import { useStore } from '../context/StoreContext';
 
 export default function Cart() {
-  const { cart } = useStore();
+  const { cart, removeFromCart } = useStore();
 
   return (
     <div>
@@ -14,6 +14,9 @@ export default function Cart() {
           <div key={index}>
             <h3>{item.title}</h3>
             <p>${item.price}</p>
+            <button onClick={() => removeFromCart(index)}>
+              Remove
+            </button>
           </div>
         ))
       )}

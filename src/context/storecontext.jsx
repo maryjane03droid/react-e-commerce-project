@@ -10,7 +10,11 @@ export function StoreProvider({ children }) {
       console.log('ADDING:', product.title);
     setCart((prevCart) => [...prevCart, product]);
   };
-
+  const removeFromCart = (indexToRemove) => {
+    setCart((prevCart) =>
+      prevCart.filter((_, index) => index !== indexToRemove)
+    );
+  };
   const login = () => {
     setIsAuthenticated(true);
   };
@@ -24,6 +28,7 @@ export function StoreProvider({ children }) {
       value={{
         cart,
         addToCart,
+        removeFromCart,
         isAuthenticated,
         login,
         logout,
