@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import ProductList from '../components/ProductList';
+import SearchBar from '../components/SearchBar';
+import { useStore } from '../context/StoreContext';
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
+  const { addToCart } = useStore();
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -30,6 +34,7 @@ export default function Products() {
   return (
     <div>
       <h1>Products Page</h1>
+       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <ProductList products={products} />
     </div>
   );
