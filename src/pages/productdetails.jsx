@@ -22,21 +22,23 @@ export default function ProductDetails() {
   }, [id]);
 
   if (loading) {
-    return <h2>Loading product details...</h2>;
+    return <h2 className="page-container">Loading product details...</h2>;
   }
 
   if (error) {
-    return <h2>{error}</h2>;
+    return <h2 className="page-container">{error}</h2>;
   }
 
   return (
-    <div>
-      <h1>Product Details</h1>
-      <img src={product.image} alt={product.title} width="200" />
-      <h2>{product.title}</h2>
-      <p><strong>Price:</strong> ${product.price}</p>
-      <p><strong>Category:</strong> {product.category}</p>
-      <p>{product.description}</p>
+    <div className="page-container">
+      <div className="details-card">
+        <h1>Product Details</h1>
+        <img src={product.image} alt={product.title} width="200" />
+        <h2>{product.title}</h2>
+        <p><strong>Price:</strong> ${product.price}</p>
+        <p><strong>Category:</strong> {product.category}</p>
+        <p>{product.description}</p>
+      </div>
     </div>
   );
 }

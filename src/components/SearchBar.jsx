@@ -1,6 +1,6 @@
 export default function SearchBar({ searchTerm, setSearchTerm }) {
   return (
-    <div>
+    <div className="search-box">
       <input
         type="text"
         placeholder="Search products..."

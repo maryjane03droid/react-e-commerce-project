@@ -28,15 +28,15 @@ export default function Products() {
   );
 
   if (loading) {
-    return <h2>Loading products...</h2>;
+    return <h2 className="page-container">Loading products...</h2>;
   }
 
   if (error) {
-    return <h2>{error}</h2>;
+    return <h2 className="page-container">{error}</h2>;
   }
 
   return (
-    <div>
+    <div className="page-container">
       <h1>Products Page</h1>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <ProductList products={filteredProducts} addToCart={addToCart} />
