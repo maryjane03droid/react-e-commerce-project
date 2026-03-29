@@ -7,6 +7,7 @@ export function StoreProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const addToCart = (product) => {
+      console.log('ADDING:', product.title);
     setCart((prevCart) => [...prevCart, product]);
   };
 

@@ -7,7 +7,7 @@ export default function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-    const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const { addToCart } = useStore();
 
   useEffect(() => {
@@ -23,6 +23,10 @@ export default function Products() {
       });
   }, []);
 
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (loading) {
     return <h2>Loading products...</h2>;
   }
@@ -34,8 +38,8 @@ export default function Products() {
   return (
     <div>
       <h1>Products Page</h1>
-       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <ProductList products={products} />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <ProductList products={filteredProducts} addToCart={addToCart} />
     </div>
   );
 }
