@@ -1,4 +1,4 @@
-import { useStore } from '../context/StoreContext';
+import { useStore } from "../context/StoreContext";
 
 export default function Cart() {
   const { cart, removeFromCart } = useStore();
@@ -13,7 +13,7 @@ export default function Cart() {
         cart.map((item, index) => (
           <div className="cart-item" key={index}>
             <h3>{item.title}</h3>
-            <p>${item.price}</p>
+            <p>KSh {(item.price * 130).toLocaleString()}</p>
             <button onClick={() => removeFromCart(index)}>Remove</button>
           </div>
         ))
