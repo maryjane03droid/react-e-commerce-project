@@ -25,36 +25,35 @@ export default function ProductDetails() {
   }, [id]);
 
   if (loading) {
-    return <h2 className="page-container">Loading product details...</h2>;
+    return <h2>Loading product details...</h2>;
   }
 
   if (error) {
-    return <h2 className="page-container">{error}</h2>;
+    return <h2>{error}</h2>;
   }
 
   return (
-    <div className="page-container">
-      <div className="details-card">
-        <h1>Product Details</h1>
-        <img src={product.image} alt={product.title} width="200" />
-        <h2>{product.title}</h2>
-        <p><strong>Price:</strong> KSh {(product.price * 130).toLocaleString()}</p>
-        <p><strong>Category:</strong> {product.category}</p>
-        <p>{product.description}</p>
+    <div>
+      <h1>Product Details</h1>
+      <img src={product.image} alt={product.title} width="200" />
+      <h2>{product.title}</h2>
+      <p><strong>Price:</strong> KSh {(product.price * 130).toLocaleString()}</p>
+      <p><strong>Category:</strong> {product.category}</p>
+      <p>{product.description}</p>
 
-        <div style={{ marginTop: '20px' }}>
-          <Link to="overview">Overview</Link> |{' '}
-          <Link to="reviews">Reviews</Link> |{' '}
-          <Link to="specs">Specs</Link>
-        </div>
+      <div style={{ marginTop: '20px' }}>
+        <Link to="overview">Overview</Link> |{' '}
+        <Link to="reviews">Reviews</Link> |{' '}
+        <Link to="specs">Specs</Link>
+      </div>
 
-        <div style={{ marginTop: '20px' }}>
-          <Routes>
-            <Route path="overview" element={<Overview />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="specs" element={<Specs />} />
-          </Routes>
-        </div>
+      <div style={{ marginTop: '20px' }}>
+        <Routes>
+          <Route index element={<Overview />} />
+          <Route path="overview" element={<Overview />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="specs" element={<Specs />} />
+        </Routes>
       </div>
     </div>
   );
