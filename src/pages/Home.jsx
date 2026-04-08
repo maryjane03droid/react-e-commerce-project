@@ -40,15 +40,14 @@ export default function Home() {
         </div>
 
         <div className="feature-card">
-          <h3>Affordable in KSh</h3>
+          <h3>Every thing for everyone</h3>
           <p>
-            Prices are displayed in Kenyan Shillings for a more familiar
-            shopping experience.
+            Explore our variety of clothes and jewellery shop and enjoy good quality 
           </p>
         </div>
 
         <div className="feature-card">
-          <h3>Fast and Simple</h3>
+          <h3>Fast and simple</h3>
           <p>
             Search, add to cart, and view product details through a smooth React
             shopping flow.
